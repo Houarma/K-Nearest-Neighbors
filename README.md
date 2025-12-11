@@ -20,3 +20,15 @@ and the corresponding target $y \in \mathbb{Z}$ describes the class of the flowe
 0. Iris Setosa
 1. Iris Versicolour 
 2. Iris Virginica
+
+The idea behind a KNN classifier is pretty simple: Given a training set $\boldsymbol X \in \mathbb{R}^{N \times D}$ and $\boldsymbol y \in \mathbb{Z}^N$, we predict the label of a new point $\boldsymbol x \in \mathbb{R}^{D}$ __as the label of the majority of its "K nearest neighbor"__ (hence the name KNN) by some distance measure (e.g the Euclidean distance).
+Here, $N$ is the number of data points in the dataset, and $D$ is the dimensionality of the data.
+
+### Pairwise distances
+We will implement a function `pairwise_distance_matrix` for computing 
+the pairwise distances between two datasets $\boldsymbol X$ and $\boldsymbol Y$.
+We can then use this pairwise distance matrix to find out the K-nearest neighbors for each row in $\boldsymbol Y$ given $\boldsymbol X$.
+
+You may be tempting to iterate through
+rows of $\boldsymbol X$ and $\boldsymbol Y$ and fill in the distance matrix, but that is slow! Can you
+think of some way to vectorize your computation (i.e. make it faster by using numpy/scipy operations only)?
